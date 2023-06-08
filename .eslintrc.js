@@ -30,6 +30,10 @@ module.exports = {
     'semi': [
       'error',
       'never'
+    ],
+    'eol-last': [
+      'error',
+      'always'
     ]
   },
   'settings': {
