@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 export const COUNTER_ACTION = 'counter'
 export const COUNTER_ACTION_INCREMENT = 'counter/increment'

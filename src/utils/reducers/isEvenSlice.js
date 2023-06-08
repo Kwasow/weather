@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
 export const IS_EVEN_ACTION = 'isEven'
 export const IS_EVEN_ACTION_SET = 'isEven/set'

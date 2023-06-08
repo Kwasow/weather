@@ -16,7 +16,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "lint": "yarn eslint src/ --ext .js,.jsx",
+    "lint-fix": "yarn eslint src/ --ext .js,.jsx --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +37,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^8.42.0",
+    "eslint-plugin-react": "^7.32.2"
   }
 }

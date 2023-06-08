@@ -1,6 +1,8 @@
-import { useDispatch, useSelector } from 'react-redux';
-import './App.css';
-import { decrement, increment } from '../utils/reducers/counterSlice';
+import React from 'react'
+
+import { useDispatch, useSelector } from 'react-redux'
+import './App.css'
+import { decrement, increment } from '../utils/reducers/counterSlice'
 
 function App() {
   const count = useSelector(state => state.counter.value)
@@ -22,7 +24,7 @@ function App() {
         Decrement
       </button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
