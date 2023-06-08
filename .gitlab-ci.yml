@@ -1,8 +1,0 @@
-stages:
-  - build
-
-build-job:
-  stage: build
-  script:
-    - yarn install
-    - yarn build
