@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import './App.css'
 import { decrement, increment } from '../utils/reducers/counterSlice'
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
   const dispatch = useDispatch()
 
   return (
-    <div className="App">
+    <div>
       <button
         aria-label='Increment value'
         onClick={() => dispatch(increment())}>
