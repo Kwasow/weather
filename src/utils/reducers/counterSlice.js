@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+export const COUNTER_ACTION = 'counter'
+export const COUNTER_ACTION_INCREMENT = 'counter/increment'
+export const COUNTER_ACTION_DECREMENT = 'counter/decrement'
+
 export const counterSlice = createSlice({
-  name: 'counter',
+  name: COUNTER_ACTION,
   initialState: {
     value: 0
   },
