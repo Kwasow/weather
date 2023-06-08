@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const IS_EVEN_ACTION = 'isEven'
-export const IS_EVEN_ACTION_SET = 'isEven/set'
+const ACTION_SET = 'set'
+export const IS_EVEN_ACTION_SET = `${IS_EVEN_ACTION}/${ACTION_SET}`
 
 export const isEvenSlice = createSlice({
   name: IS_EVEN_ACTION,
@@ -9,7 +10,7 @@ export const isEvenSlice = createSlice({
     value: true
   },
   reducers: {
-    set: (state, action) => {
+    [ACTION_SET]: (state, action) => {
       state.value = action.payload
     }
   }
