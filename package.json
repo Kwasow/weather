@@ -12,6 +12,7 @@
     "react-redux": "^8.0.7",
     "react-scripts": "5.0.1",
     "redux-observable": "^2.0.0",
+    "styled-components": "^5.3.11",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -41,5 +42,8 @@
   "devDependencies": {
     "eslint": "^8.42.0",
     "eslint-plugin-react": "^7.32.2"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }

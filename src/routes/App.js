@@ -2,6 +2,7 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../utils/reducers/counterSlice'
+import { Button } from '../components/Button'
 
 function App() {
   const count = useSelector(state => state.counter.value)
@@ -10,18 +11,18 @@ function App() {
 
   return (
     <div>
-      <button
+      <Button
         aria-label='Increment value'
         onClick={() => dispatch(increment())}>
         Increment
-      </button>
+      </Button>
       <p>{count}</p>
       <p>isEven: {isEven.toString()}</p>
-      <button
+      <Button
         aria-label='Decrement value'
         onClick={() => dispatch(decrement())}>
         Decrement
-      </button>
+      </Button>
     </div>
   )
 }
