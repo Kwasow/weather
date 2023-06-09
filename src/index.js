@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './routes/App'
 import { Provider } from 'react-redux'
-import store from './utils/setupStore'
+import store from './redux/setupStore'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from './utils/theme'
 

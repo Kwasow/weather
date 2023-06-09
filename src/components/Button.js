@@ -6,6 +6,8 @@ export const Button = styled.button`
   border: 0px;
   cursor: pointer;
   color: ${props => props.theme.onPrimary};
-  font-size: 1.2rem;
-  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 15px;
+  text-transform: uppercase
 `

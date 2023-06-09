@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const COUNTER_ACTION = 'counter'
-const ACTION_INCREMENT = 'increment'
-export const COUNTER_ACTION_INCREMENT = `${COUNTER_ACTION}/${ACTION_INCREMENT}`
-const ACTION_DECREMENT = 'decrement'
-export const COUNTER_ACTION_DECREMENT = `${COUNTER_ACTION}/${ACTION_DECREMENT}`
+export const COUNTER_ACTION_INCREMENT = `${COUNTER_ACTION}/increment`
+export const COUNTER_ACTION_DECREMENT = `${COUNTER_ACTION}/decrement`
 
 export const counterSlice = createSlice({
   name: COUNTER_ACTION,
@@ -12,10 +10,10 @@ export const counterSlice = createSlice({
     value: 0
   },
   reducers: {
-    [ACTION_INCREMENT]: state => {
+    increment: state => {
       state.value += 1
     },
-    [ACTION_DECREMENT]: state => {
+    decrement: state => {
       state.value -= 1
     }
   }

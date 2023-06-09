@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '../utils/reducers/counterSlice'
-import { Button } from '../components/Button'
+import { decrement, increment } from '../redux/reducers/counterSlice'
+import { Background, Button } from '../components/index'
 
 function App() {
   const count = useSelector(state => state.counter.value)
@@ -10,7 +10,7 @@ function App() {
   const dispatch = useDispatch()
 
   return (
-    <div>
+    <Background>
       <Button
         aria-label='Increment value'
         onClick={() => dispatch(increment())}>
@@ -23,7 +23,7 @@ function App() {
         onClick={() => dispatch(decrement())}>
         Decrement
       </Button>
-    </div>
+    </Background>
   )
 }
 
