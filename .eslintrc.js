@@ -34,7 +34,8 @@ module.exports = {
     'eol-last': [
       'error',
       'always'
-    ]
+    ],
+    'react/prop-types': 'off'
   },
   'settings': {
     'react': {

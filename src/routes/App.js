@@ -3,6 +3,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../redux/reducers/counterSlice'
 import { Background, Button } from '../components/index'
+import { change } from '../redux/reducers/themeSlice'
 
 function App() {
   const count = useSelector(state => state.counter.value)
@@ -22,6 +23,11 @@ function App() {
         aria-label='Decrement value'
         onClick={() => dispatch(decrement())}>
         Decrement
+      </Button>
+      <Button
+        aria-label='Theme switcher'
+        onClick={() => {dispatch(change())}}>
+        Switch theme
       </Button>
     </Background>
   )
