@@ -9,5 +9,5 @@ export const Button = styled.button`
   font-size: 0.9rem;
   font-weight: bold;
   padding: 15px;
-  text-transform: uppercase
+  text-transform: uppercase;
 `

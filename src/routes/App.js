@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { decrement, increment } from '../redux/reducers/counterSlice'
-import { Background, Button } from '../components/index'
+import { Background, Button, Text } from '../components/index'
 import { change } from '../redux/reducers/themeSlice'
 
 function App() {
@@ -17,8 +17,8 @@ function App() {
         onClick={() => dispatch(increment())}>
         Increment
       </Button>
-      <p>{count}</p>
-      <p>isEven: {isEven.toString()}</p>
+      <Text>{count}</Text>
+      <Text>isEven: {isEven.toString()}</Text>
       <Button
         aria-label='Decrement value'
         onClick={() => dispatch(decrement())}>

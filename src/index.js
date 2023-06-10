@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './routes/App'
 import { Provider } from 'react-redux'
 import store from './redux/setupStore'
-import { DynamicTheme } from './components/DynamicTheme'
+import { DynamicTheme } from './components/index'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
