@@ -1,7 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-export const THEME_ACTION = 'theme'
-export const THEME_ACTION_SWITCH = `${THEME_ACTION}/change`
+const ACTION_SWITCH = 'switchTheme'
+const THEME_ACTION = 'theme'
+
+export const THEME_ACTION_SWITCH = `${THEME_ACTION}/${ACTION_SWITCH}`
 
 export const themeSlice = createSlice({
   name: THEME_ACTION,
@@ -9,12 +11,12 @@ export const themeSlice = createSlice({
     isLight: true
   },
   reducers: {
-    change: state => {
+    [ACTION_SWITCH]: state => {
       state.isLight = !state.isLight
     }
   }
 })
 
-export const { change } = themeSlice.actions
+export const { switchTheme } = themeSlice.actions
 
 export default themeSlice.reducer

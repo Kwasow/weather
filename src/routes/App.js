@@ -1,34 +1,26 @@
 import React from 'react'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '../redux/reducers/counterSlice'
-import { Background, Button, Text } from '../components/index'
-import { change } from '../redux/reducers/themeSlice'
+import {
+  Background,
+  ThemeSwitcher,
+  Header,
+  CenterHorizontal,
+  CitySelector
+} from '../components/index'
+import { useSelector } from 'react-redux'
 
 function App() {
-  const count = useSelector(state => state.counter.value)
-  const isEven = useSelector(state => state.isEven.value)
-  const dispatch = useDispatch()
+  const currentLocation = useSelector(state => state.location.current)
 
   return (
     <Background>
-      <Button
-        aria-label='Increment value'
-        onClick={() => dispatch(increment())}>
-        Increment
-      </Button>
-      <Text>{count}</Text>
-      <Text>isEven: {isEven.toString()}</Text>
-      <Button
-        aria-label='Decrement value'
-        onClick={() => dispatch(decrement())}>
-        Decrement
-      </Button>
-      <Button
-        aria-label='Theme switcher'
-        onClick={() => {dispatch(change())}}>
-        Switch theme
-      </Button>
+      <ThemeSwitcher />
+      <CenterHorizontal>
+        <Header>Forecast</Header>
+        <CitySelector />
+        <p>
+          {JSON.stringify(currentLocation)}
+        </p>
+      </CenterHorizontal>
     </Background>
   )
 }

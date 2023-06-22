@@ -11,6 +11,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.7",
     "react-scripts": "5.0.1",
+    "react-select": "^5.7.3",
     "redux-observable": "^2.0.0",
     "styled-components": "^5.3.11"
   },

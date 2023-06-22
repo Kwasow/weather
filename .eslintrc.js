@@ -39,7 +39,11 @@ module.exports = {
       'error',
       { 'max': 1 }
     ],
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'max-len': [
+      'error',
+      { code: 80 }
+    ]
   },
   'settings': {
     'react': {

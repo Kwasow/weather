@@ -1,8 +1,8 @@
 import { combineEpics } from 'redux-observable'
-import { isEvenEpic } from './isEvenEpic'
+import { locationHintsEpic } from './locationHintsEpic'
 
 const rootEpic = combineEpics(
-  isEvenEpic
+  locationHintsEpic
 )
 
 export default rootEpic
