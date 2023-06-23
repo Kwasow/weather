@@ -1,14 +1,28 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { WeatherNotLoaded } from './common'
-import { Text } from '../index'
+import { BackgroundCard, GeneralDayWeather, WeatherNotLoaded } from './common'
+import { Column } from '../index'
 
 export function WeatherLongTerm() {
   const longTermWeather = useSelector(state => state.weather.longTerm)
+
+  console.log(longTermWeather)
 
   if (longTermWeather.length === 0) {
     return <WeatherNotLoaded />
   }
 
-  return <Text>Long term: {JSON.stringify(longTermWeather)}</Text>
+  return (
+    <Column>
+      {longTermWeather.map((value, index) => {
+        console.log(value)
+
+        return (
+          <BackgroundCard key={index}>
+            <GeneralDayWeather date={value.date} day={value.day}/>
+          </BackgroundCard>
+        )
+      })}
+    </Column>
+  )
 }

@@ -1,6 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, Grid, Row, Text, TextSecondary } from '../index'
+import {
+  Card,
+  CenterHorizontal,
+  Column,
+  Grid,
+  Header,
+  Row,
+  Text,
+  TextSecondary
+} from '../index'
 
 export function WeatherNotLoaded() {
   return <TextSecondary>
@@ -50,5 +59,49 @@ export function WeatherItem(props) {
         {value}
       </WeatherItemValue>
     </Row>
+  )
+}
+
+export function GeneralDayWeather(props) {
+  const { date, day } = props
+
+  const iconURL = day.condition.icon.replace('64x64', '128x128')
+
+  return (
+    <DayGrid>
+      <CenterHorizontal>
+        {date && <TextSecondary>{date}</TextSecondary>}
+        <img
+          src={iconURL}
+          alt={day.condition.text}/>
+        <Header style={{ margin: 0, padding: 0 }}>
+          {day.condition.text}
+        </Header>
+        <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
+          {day.maxtemp_c}&#176;C{' '}
+          ({day.mintemp_c}&#176;C)
+        </TextSecondary>
+      </CenterHorizontal>
+      <Column>
+        <WeatherItem
+          label='Rain chance'
+          value={day.daily_chance_of_rain + '%'}/>
+        <WeatherItem
+          label='Precipitation amount'
+          value={day.totalprecip_mm + ' mm'}/>
+        <WeatherItem
+          label='Snow chance'
+          value={day.daily_chance_of_snow + '%'}/>
+        <WeatherItem
+          label='Snow amount'
+          value={day.totalsnow_cm + ' cm'}/>
+        <WeatherItem
+          label='Humidity'
+          value={day.avghumidity + '%'}/>
+        <WeatherItem
+          label='UV index'
+          value={day.uv}/>
+      </Column>
+    </DayGrid>
   )
 }

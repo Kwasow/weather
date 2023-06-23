@@ -3,9 +3,8 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import {
   BackgroundCard,
-  DayGrid,
+  GeneralDayWeather,
   HourlyGrid,
-  WeatherItem,
   WeatherNotLoaded
 } from './common'
 import {
@@ -72,8 +71,6 @@ export function WeatherToday() {
     return <WeatherNotLoaded />
   }
 
-  const iconURL = todayWeather.day.condition.icon.replace('64x64', '128x128')
-
   const night = todayWeather.hour.slice(0, 6)
   const morning = todayWeather.hour.slice(6, 12)
   const afternoon = todayWeather.hour.slice(12, 18)
@@ -81,40 +78,7 @@ export function WeatherToday() {
 
   return (
     <BackgroundCard>
-      <DayGrid>
-        <CenterHorizontal>
-          <img
-            src={iconURL}
-            alt={todayWeather.day.condition.text}/>
-          <Header style={{ margin: 0, padding: 0 }}>
-            {todayWeather.day.condition.text}
-          </Header>
-          <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
-            {todayWeather.day.maxtemp_c}&#176;C{' '}
-            ({todayWeather.day.mintemp_c}&#176;C)
-          </TextSecondary>
-        </CenterHorizontal>
-        <Column>
-          <WeatherItem
-            label='Rain chance'
-            value={todayWeather.day.daily_chance_of_rain + '%'}/>
-          <WeatherItem
-            label='Precipitation amount'
-            value={todayWeather.day.totalprecip_mm + ' mm'}/>
-          <WeatherItem
-            label='Snow chance'
-            value={todayWeather.day.daily_chance_of_snow + '%'}/>
-          <WeatherItem
-            label='Snow amount'
-            value={todayWeather.day.totalsnow_cm + ' cm'}/>
-          <WeatherItem
-            label='Humidity'
-            value={todayWeather.day.avghumidity + '%'}/>
-          <WeatherItem
-            label='UV index'
-            value={todayWeather.day.uv}/>
-        </Column>
-      </DayGrid>
+      <GeneralDayWeather day={todayWeather.day} />
         
       <HourlyGrid>
         <WeatherGridHeader>Night</WeatherGridHeader>

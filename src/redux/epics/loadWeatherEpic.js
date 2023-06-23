@@ -14,7 +14,7 @@ export const loadWeatherEpic = (action$, state$) => action$.pipe(
       `${WEATHER_API_FORECAST}
         ?key=${WEATHER_API_KEY}
         &q=${state$.value.location.current.name}
-        &day=3`
+        &days=3`
     )
       .then(res => res.json())
       .then(res => {

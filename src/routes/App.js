@@ -27,7 +27,7 @@ function App() {
         <TabsContainer>
           <Tab id={1}>Current</Tab>
           <Tab id={2}>Today</Tab>
-          <Tab id={3}>Long term</Tab>
+          <Tab id={3}>3-day</Tab>
         </TabsContainer>
         <TabContent id={1}>
           <WeatherCurrent />
