@@ -2,6 +2,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { switchTab } from '../redux/reducers/tabSlice'
+import { CenterHorizontal } from './Center'
 
 export const TabsContainer = styled.div`
   background-color: ${props => props.theme.surface};
@@ -38,8 +39,9 @@ const StyledTab = styled.button`
   }
 `
 
-const TabContentWrapper = styled.div`
+const TabContentWrapper = styled(CenterHorizontal)`
   padding: 0.5%;
+  width: 100%;
 `
 
 export function Tab(props) {
