@@ -11,24 +11,18 @@ import {
   CurrentWeather,
   TodayWeather,
   LongTermWeather,
-  TextSecondary
+  LastUpdated
 } from '../components/index'
-import { useSelector } from 'react-redux'
 
 function App() {
-  const currentWeather = useSelector(state => state.weather.current)
-
   return (
     <Background>
       <ThemeSwitcher />
+      <LastUpdated />
+
       <CenterHorizontal>
         <Header>Forecast</Header>
         <CitySelector />
-
-        <TextSecondary style={{ textAlign: 'center' }}>
-          Last updated:<br/>
-          {currentWeather ? currentWeather.last_updated : 'never'}
-        </TextSecondary>
 
         <TabsContainer>
           <Tab id={1}>Current</Tab>

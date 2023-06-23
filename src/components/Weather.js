@@ -6,13 +6,11 @@ import {
   TextSecondary,
   Header,
   Column,
-  CenterHorizontal,
-  Table,
-  TableCell,
-  TableRow
+  CenterHorizontal
 } from './index'
 import styled from 'styled-components'
 import { Card } from './Card'
+import { Table, TableCell, TableRow } from './Table'
 
 const WeatherItemLabel = styled(Text)`
   margin: 0;
