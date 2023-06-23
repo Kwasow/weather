@@ -1,7 +1,18 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Row, Text, TextSecondary, Header, Column, Card } from './index'
+import {
+  Row,
+  Text,
+  TextSecondary,
+  Header,
+  Column,
+  CenterHorizontal,
+  Table,
+  TableCell,
+  TableRow
+} from './index'
 import styled from 'styled-components'
+import { Card } from './Card'
 
 const WeatherItemLabel = styled(Text)`
   margin: 0;
@@ -17,6 +28,23 @@ const WeatherItemValue = styled(Text)`
   color: ${props => props.theme.primary};
   font-weight: bold;
   white-space: nowrap;
+`
+
+const BackgroundCard = styled(Card)`
+  padding: 2%;
+  margin: 2%;
+`
+
+const WeatherTileCard = styled(Card)`
+  display: inline-flex;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin: 5px;
+  width: 15%;
+`
+
+const TableCellAlignRight = styled(TableCell)`
+  text-align: right;
 `
 
 function WeatherItem(props) {
@@ -40,6 +68,20 @@ function WeatherNotLoaded() {
   </TextSecondary>
 }
 
+function WeatherTile(props) {
+  const { title, icon, alt, temperature } = props
+
+  return (
+    <WeatherTileCard>
+      <CenterHorizontal>
+        <Text>{title}</Text>
+        <img src={icon} alt={alt} />
+        <Text>{temperature}</Text>
+      </CenterHorizontal>
+    </WeatherTileCard>
+  )
+}
+
 export function CurrentWeather() {
   const currentWeather = useSelector(state => state.weather.current)
 
@@ -50,7 +92,7 @@ export function CurrentWeather() {
   const iconURL = currentWeather.condition.icon.replace('64x64', '128x128')
 
   return (
-    <Card>
+    <BackgroundCard>
       <Row>
         <Column style={{ paddingRight: '5%' }}>
           <img
@@ -101,7 +143,7 @@ export function CurrentWeather() {
             value={currentWeather.uv}/>
         </Column>
       </Row>
-    </Card>
+    </BackgroundCard>
   )
 }
 
@@ -112,7 +154,100 @@ export function TodayWeather() {
     return <WeatherNotLoaded />
   }
 
-  return <Text>Today: {JSON.stringify(todayWeather)}</Text>
+  const iconURL = todayWeather.day.condition.icon.replace('64x64', '128x128')
+
+  const night = todayWeather.hour.slice(0, 6)
+  const morning = todayWeather.hour.slice(6, 12)
+  const afternoon = todayWeather.hour.slice(12, 18)
+  const evening = todayWeather.hour.slice(18, 24)
+
+  return (
+    <BackgroundCard>
+      <CenterHorizontal>
+        <img
+          src={iconURL}
+          alt={todayWeather.day.condition.text}/>
+        <Header style={{ margin: 0, padding: 0 }}>
+          {todayWeather.day.condition.text}
+        </Header>
+        <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
+          {todayWeather.day.avgtemp_c}&#176;C /{' '}
+          {todayWeather.day.avgtemp_f}&#176;F
+        </TextSecondary>
+
+        <Table>
+          <TableRow>
+            <TableCellAlignRight>
+              <Header>Night</Header>
+            </TableCellAlignRight>
+            <TableCell>
+              {night.map((value, index) => {
+                return (
+                  <WeatherTile
+                    key={index}
+                    title={value.time.slice(-5)}
+                    icon={value.condition.icon}
+                    alt={value.condition.text}
+                    temperature={value.temp_c}/>
+                )
+              })}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCellAlignRight>
+              <Header>Morning</Header>
+            </TableCellAlignRight>
+            <TableCell>
+              {morning.map((value, index) => {
+                return (
+                  <WeatherTile
+                    key={index}
+                    title={value.time.slice(-5)}
+                    icon={value.condition.icon}
+                    alt={value.condition.text}
+                    temperature={value.temp_c}/>
+                )
+              })}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCellAlignRight>
+              <Header>Afternoon</Header>
+            </TableCellAlignRight>
+            <TableCell>
+              {afternoon.map((value, index) => {
+                return (
+                  <WeatherTile
+                    key={index}
+                    title={value.time.slice(-5)}
+                    icon={value.condition.icon}
+                    alt={value.condition.text}
+                    temperature={value.temp_c}/>
+                )
+              })}
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCellAlignRight>
+              <Header>Evening</Header>
+            </TableCellAlignRight>
+            <TableCell>
+              {evening.map((value, index) => {
+                return (
+                  <WeatherTile
+                    key={index}
+                    title={value.time.slice(-5)}
+                    icon={value.condition.icon}
+                    alt={value.condition.text}
+                    temperature={value.temp_c}/>
+                )
+              })}
+            </TableCell>
+          </TableRow>
+        </Table>
+      </CenterHorizontal>
+    </BackgroundCard>
+  )
 }
 
 export function LongTermWeather() {
