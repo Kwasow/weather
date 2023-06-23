@@ -8,7 +8,7 @@ export const Row = styled.div`
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  white-space: nowrap;
 `
 
 export const Grid = styled.div`

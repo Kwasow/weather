@@ -6,11 +6,11 @@ import {
   TextSecondary,
   Header,
   Column,
-  CenterHorizontal,
-  Grid
+  CenterHorizontal
 } from './index'
 import styled from 'styled-components'
 import { Card } from './Card'
+import { Grid } from './Container'
 
 const WeatherItemLabel = styled(Text)`
   margin: 0;
@@ -121,7 +121,7 @@ export function CurrentWeather() {
 
   return (
     <BackgroundCard>
-      <Row>
+      <HourlyGrid>
         <Column style={{ paddingRight: '5%' }}>
           <img
             src={iconURL}
@@ -170,7 +170,7 @@ export function CurrentWeather() {
             label='UV index'
             value={currentWeather.uv}/>
         </Column>
-      </Row>
+      </HourlyGrid>
     </BackgroundCard>
   )
 }
