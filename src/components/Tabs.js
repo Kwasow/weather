@@ -38,6 +38,10 @@ const StyledTab = styled.button`
   }
 `
 
+const TabContentWrapper = styled.div`
+  padding: 0.5%;
+`
+
 export function Tab(props) {
   const selectedId = useSelector(state => state.tab.current)
   const dispatch = useDispatch()
@@ -58,6 +62,6 @@ export function TabContent(props) {
   const id = props.id
 
   return id === selectedId
-    ? <div>{props.children}</div>
+    ? <TabContentWrapper>{props.children}</TabContentWrapper>
     : <></>
 }

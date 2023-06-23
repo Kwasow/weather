@@ -8,15 +8,15 @@ import {
   Text,
   TabsContainer,
   Tab,
-  TabContent
+  TabContent,
+  CurrentWeather,
+  TodayWeather,
+  LongTermWeather
 } from '../components/index'
 import { useSelector } from 'react-redux'
 
 function App() {
   const currentLocation = useSelector(state => state.location.current)
-  const weatherCurrent = useSelector(state => state.weather.current)
-  const weatherToday = useSelector(state => state.weather.today)
-  const weatherLongTerm = useSelector(state => state.weather.longTerm)
 
   return (
     <Background>
@@ -32,17 +32,13 @@ function App() {
           <Tab id={3}>Long term</Tab>
         </TabsContainer>
         <TabContent id={1}>
-          <Text>
-            Current: {JSON.stringify(weatherCurrent).substring(0, 30)}
-          </Text>
+          <CurrentWeather />
         </TabContent>
         <TabContent id={2}>
-          <Text>Today: {JSON.stringify(weatherToday).substring(0, 30)}</Text>
+          <TodayWeather />
         </TabContent>
         <TabContent id={3}>
-          <Text>
-            LongTerm: {JSON.stringify(weatherLongTerm).substring(0, 30)}
-          </Text>
+          <LongTermWeather />
         </TabContent>
       </CenterHorizontal>
     </Background>
