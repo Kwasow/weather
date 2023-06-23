@@ -6,11 +6,11 @@ import {
   TextSecondary,
   Header,
   Column,
-  CenterHorizontal
+  CenterHorizontal,
+  Grid
 } from './index'
 import styled from 'styled-components'
 import { Card } from './Card'
-import { Table, TableCell, TableRow } from './Table'
 
 const WeatherItemLabel = styled(Text)`
   margin: 0;
@@ -38,12 +38,42 @@ const WeatherTileCard = styled(Card)`
   padding-right: 5px;
   padding-left: 5px;
   margin: 5px;
-  width: 15%;
+  width: 80px;
 `
 
-const TableCellAlignRight = styled(TableCell)`
-  text-align: right;
+const WeatherGridHeader = styled(Header)`
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
 `
+
+const WeatherGridSubheader = styled(TextSecondary)`
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+`
+
+const HourlyGrid = styled(Grid)`
+  grid-template-columns: auto auto;
+`
+
+const DayGrid = styled(Grid)`
+  grid-template-columns: 50% 50%;
+  padding-bottom: 50px;
+`
+
+function parseHour(hour) {
+  const timeOfDay = hour.slice(-2)
+
+  if (timeOfDay === 'AM') {
+    return hour.substr(0, 5)
+  } else {
+    const hourDigits = parseInt(hour.substr(0, 2)) + 12
+    const minuteDigits = hour.substr(3, 2)
+
+    return `${hourDigits}:${minuteDigits}`
+  }
+}
 
 function WeatherItem(props) {
   const { label, value } = props
@@ -72,9 +102,9 @@ function WeatherTile(props) {
   return (
     <WeatherTileCard>
       <CenterHorizontal>
-        <Text>{title}</Text>
+        <TextSecondary>{title}</TextSecondary>
         <img src={icon} alt={alt} />
-        <Text>{temperature}</Text>
+        <Text>{temperature}&#176;C</Text>
       </CenterHorizontal>
     </WeatherTileCard>
   )
@@ -113,13 +143,13 @@ export function CurrentWeather() {
             value={currentWeather.humidity + '%'}/>
           <WeatherItem
             label='Precipitation'
-            value={currentWeather.precip_mm + 'mm'}/>
+            value={currentWeather.precip_mm + ' mm'}/>
 
           <WeatherItem
             label='Wind'
             value={
-              `${currentWeather.wind_kph}km/h
-              (up to ${currentWeather.gust_kph}km/h)`
+              `${currentWeather.wind_kph} km/h
+              (up to ${currentWeather.gust_kph} km/h)`
             }/>
           <WeatherItem
             label='Wind direction'
@@ -129,15 +159,15 @@ export function CurrentWeather() {
 
           <WeatherItem
             label='Pressure'
-            value={currentWeather.pressure_mb + 'hPa'}/>
+            value={currentWeather.pressure_mb + ' hPa'}/>
           <WeatherItem
             label='Cloud'
             value={currentWeather.cloud + '%'}/>
           <WeatherItem
             label='Visibility'
-            value={currentWeather.vis_km + 'km'}/>
+            value={currentWeather.vis_km + ' km'}/>
           <WeatherItem
-            label='UV'
+            label='UV index'
             value={currentWeather.uv}/>
         </Column>
       </Row>
@@ -161,89 +191,105 @@ export function TodayWeather() {
 
   return (
     <BackgroundCard>
-      <CenterHorizontal>
-        <img
-          src={iconURL}
-          alt={todayWeather.day.condition.text}/>
-        <Header style={{ margin: 0, padding: 0 }}>
-          {todayWeather.day.condition.text}
-        </Header>
-        <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
-          {todayWeather.day.avgtemp_c}&#176;C /{' '}
-          {todayWeather.day.avgtemp_f}&#176;F
-        </TextSecondary>
-
-        <Table>
-          <TableRow>
-            <TableCellAlignRight>
-              <Header>Night</Header>
-            </TableCellAlignRight>
-            <TableCell>
-              {night.map((value, index) => {
-                return (
-                  <WeatherTile
-                    key={index}
-                    title={value.time.slice(-5)}
-                    icon={value.condition.icon}
-                    alt={value.condition.text}
-                    temperature={value.temp_c}/>
-                )
-              })}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCellAlignRight>
-              <Header>Morning</Header>
-            </TableCellAlignRight>
-            <TableCell>
-              {morning.map((value, index) => {
-                return (
-                  <WeatherTile
-                    key={index}
-                    title={value.time.slice(-5)}
-                    icon={value.condition.icon}
-                    alt={value.condition.text}
-                    temperature={value.temp_c}/>
-                )
-              })}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCellAlignRight>
-              <Header>Afternoon</Header>
-            </TableCellAlignRight>
-            <TableCell>
-              {afternoon.map((value, index) => {
-                return (
-                  <WeatherTile
-                    key={index}
-                    title={value.time.slice(-5)}
-                    icon={value.condition.icon}
-                    alt={value.condition.text}
-                    temperature={value.temp_c}/>
-                )
-              })}
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCellAlignRight>
-              <Header>Evening</Header>
-            </TableCellAlignRight>
-            <TableCell>
-              {evening.map((value, index) => {
-                return (
-                  <WeatherTile
-                    key={index}
-                    title={value.time.slice(-5)}
-                    icon={value.condition.icon}
-                    alt={value.condition.text}
-                    temperature={value.temp_c}/>
-                )
-              })}
-            </TableCell>
-          </TableRow>
-        </Table>
-      </CenterHorizontal>
+      <DayGrid>
+        <CenterHorizontal>
+          <img
+            src={iconURL}
+            alt={todayWeather.day.condition.text}/>
+          <Header style={{ margin: 0, padding: 0 }}>
+            {todayWeather.day.condition.text}
+          </Header>
+          <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
+            {todayWeather.day.maxtemp_c}&#176;C{' '}
+            ({todayWeather.day.mintemp_c}&#176;C)
+          </TextSecondary>
+        </CenterHorizontal>
+        <Column>
+          <WeatherItem
+            label='Rain chance'
+            value={todayWeather.day.daily_chance_of_rain + '%'}/>
+          <WeatherItem
+            label='Precipitation amount'
+            value={todayWeather.day.totalprecip_mm + ' mm'}/>
+          <WeatherItem
+            label='Snow chance'
+            value={todayWeather.day.daily_chance_of_snow + '%'}/>
+          <WeatherItem
+            label='Snow amount'
+            value={todayWeather.day.totalsnow_cm + ' cm'}/>
+          <WeatherItem
+            label='Humidity'
+            value={todayWeather.day.avghumidity + '%'}/>
+          <WeatherItem
+            label='UV index'
+            value={todayWeather.day.uv}/>
+        </Column>
+      </DayGrid>
+        
+      <HourlyGrid>
+        <WeatherGridHeader>Night</WeatherGridHeader>
+        <Row>
+          {night.map((value, index) => {
+            return (
+              <WeatherTile
+                key={index}
+                title={value.time.slice(-5)}
+                icon={value.condition.icon}
+                alt={value.condition.text}
+                temperature={value.temp_c}/>
+            )
+          })}
+        </Row>
+        <Column>
+          <WeatherGridHeader>Morning</WeatherGridHeader>
+          <WeatherGridSubheader>
+            Sunrise: {parseHour(todayWeather.astro.sunrise)}
+          </WeatherGridSubheader>
+        </Column>
+        <Row>
+          {morning.map((value, index) => {
+            return (
+              <WeatherTile
+                key={index}
+                title={value.time.slice(-5)}
+                icon={value.condition.icon}
+                alt={value.condition.text}
+                temperature={value.temp_c}/>
+            )
+          })}
+        </Row>
+        <WeatherGridHeader>Afternoon</WeatherGridHeader>
+        <Row>
+          {afternoon.map((value, index) => {
+            return (
+              <WeatherTile
+                key={index}
+                title={value.time.slice(-5)}
+                icon={value.condition.icon}
+                alt={value.condition.text}
+                temperature={value.temp_c}/>
+            )
+          })}
+        </Row>
+        <Column>
+          <WeatherGridHeader>Evening</WeatherGridHeader>
+          <WeatherGridSubheader>
+            Sunset: {parseHour(todayWeather.astro.sunset)}
+          </WeatherGridSubheader>
+        </Column>
+        <Row>
+          {evening.map((value, index) => {
+            return (
+              <WeatherTile
+                key={index}
+                title={value.time.slice(-5)}
+                icon={value.condition.icon}
+                alt={value.condition.text}
+                temperature={value.temp_c}/>
+            )
+          })}
+        </Row>
+      </HourlyGrid>
     </BackgroundCard>
   )
 }

@@ -10,6 +10,7 @@ export const TabsContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  padding-top: 20px;
 `
 
 const StyledTab = styled.button`
