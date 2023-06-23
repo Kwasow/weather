@@ -5,18 +5,18 @@ import {
   Header,
   CenterHorizontal,
   CitySelector,
-  Text,
   TabsContainer,
   Tab,
   TabContent,
   CurrentWeather,
   TodayWeather,
-  LongTermWeather
+  LongTermWeather,
+  TextSecondary
 } from '../components/index'
 import { useSelector } from 'react-redux'
 
 function App() {
-  const currentLocation = useSelector(state => state.location.current)
+  const currentWeather = useSelector(state => state.weather.current)
 
   return (
     <Background>
@@ -24,7 +24,11 @@ function App() {
       <CenterHorizontal>
         <Header>Forecast</Header>
         <CitySelector />
-        <Text>Location: {JSON.stringify(currentLocation)}</Text>
+
+        <TextSecondary style={{ textAlign: 'center' }}>
+          Last updated:<br/>
+          {currentWeather ? currentWeather.last_updated : 'never'}
+        </TextSecondary>
 
         <TabsContainer>
           <Tab id={1}>Current</Tab>

@@ -46,7 +46,7 @@ export function Tab(props) {
   const selectedId = useSelector(state => state.tab.current)
   const dispatch = useDispatch()
 
-  const id = props.id
+  const { id } = props
 
   return <StyledTab
     className={selectedId === id ? 'active' : ''}
@@ -59,7 +59,7 @@ export function Tab(props) {
 export function TabContent(props) {
   const selectedId = useSelector(state => state.tab.current)
   
-  const id = props.id
+  const { id } = props
 
   return id === selectedId
     ? <TabContentWrapper>{props.children}</TabContentWrapper>

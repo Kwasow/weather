@@ -9,3 +9,7 @@ export const Header = styled.p`
   font-size: 1.5rem;
   font-weight: bold;
 `
+
+export const TextSecondary = styled(Text)`
+  opacity: 60%;
+`

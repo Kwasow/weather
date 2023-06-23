@@ -14,7 +14,7 @@ export const weatherSlice = createSlice({
   initialState: {
     current: null,
     today: null,
-    longTerm: [null, null, null],
+    longTerm: [],
     lastChecked: -1
   },
   reducers: {
@@ -22,12 +22,12 @@ export const weatherSlice = createSlice({
       state.current = action.payload.current
       state.today = action.payload.forecast.forecastday[0]
       state.longTerm = action.payload.forecast.forecastday
-      state.lastChecked = Date.now()
+      state.lastChecked = action.payload.current.last_updated_epoch
     },
     [ACTION_RESET]: state => {
       state.current = null
       state.today = null
-      state.longTerm = [null, null, null]
+      state.longTerm = []
       state.lastChecked = -1
     }
   }
