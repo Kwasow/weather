@@ -8,9 +8,9 @@ import {
   TabsContainer,
   Tab,
   TabContent,
-  CurrentWeather,
-  TodayWeather,
-  LongTermWeather,
+  WeatherCurrent,
+  WeatherToday,
+  WeatherLongTerm,
   LastUpdated
 } from '../components/index'
 
@@ -30,13 +30,13 @@ function App() {
           <Tab id={3}>Long term</Tab>
         </TabsContainer>
         <TabContent id={1}>
-          <CurrentWeather />
+          <WeatherCurrent />
         </TabContent>
         <TabContent id={2}>
-          <TodayWeather />
+          <WeatherToday />
         </TabContent>
         <TabContent id={3}>
-          <LongTermWeather />
+          <WeatherLongTerm />
         </TabContent>
       </CenterHorizontal>
     </Background>

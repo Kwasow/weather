@@ -1,45 +1,22 @@
 import React from 'react'
+import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import {
+  BackgroundCard,
+  DayGrid,
+  HourlyGrid,
+  WeatherItem,
+  WeatherNotLoaded
+} from './common'
+import {
+  CenterHorizontal,
+  Card,
+  Column,
+  Header,
   Row,
   Text,
-  TextSecondary,
-  Header,
-  Column,
-  CenterHorizontal
-} from './index'
-import styled from 'styled-components'
-import { Card } from './Card'
-import { Grid } from './Container'
-
-const WeatherItemLabel = styled(Text)`
-  margin: 0;
-  margin-bottom: 5px;
-  margin-top: 5px;
-`
-
-const WeatherItemValue = styled(Text)`
-  margin: 0;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  margin-left: 5px;
-  color: ${props => props.theme.primary};
-  font-weight: bold;
-  white-space: nowrap;
-`
-
-const BackgroundCard = styled(Card)`
-  padding: 2%;
-  margin: 2%;
-`
-
-const WeatherTileCard = styled(Card)`
-  display: inline-flex;
-  padding-right: 5px;
-  padding-left: 5px;
-  margin: 5px;
-  width: 80px;
-`
+  TextSecondary
+} from '../index'
 
 const WeatherGridHeader = styled(Header)`
   text-align: center;
@@ -53,48 +30,13 @@ const WeatherGridSubheader = styled(TextSecondary)`
   margin-bottom: 0;
 `
 
-const HourlyGrid = styled(Grid)`
-  grid-template-columns: auto auto;
+const WeatherTileCard = styled(Card)`
+  display: inline-flex;
+  padding-right: 5px;
+  padding-left: 5px;
+  margin: 5px;
+  width: 80px;
 `
-
-const DayGrid = styled(Grid)`
-  grid-template-columns: 50% 50%;
-  padding-bottom: 50px;
-`
-
-function parseHour(hour) {
-  const timeOfDay = hour.slice(-2)
-
-  if (timeOfDay === 'AM') {
-    return hour.substr(0, 5)
-  } else {
-    const hourDigits = parseInt(hour.substr(0, 2)) + 12
-    const minuteDigits = hour.substr(3, 2)
-
-    return `${hourDigits}:${minuteDigits}`
-  }
-}
-
-function WeatherItem(props) {
-  const { label, value } = props
-
-  return (
-    <Row>
-      <WeatherItemLabel>
-        {label}:
-      </WeatherItemLabel>
-      <WeatherItemValue>
-        {value}
-      </WeatherItemValue>
-    </Row>
-  )
-}
-
-function WeatherNotLoaded() {
-  return <TextSecondary>
-    Weather not loaded
-  </TextSecondary>
-}
 
 function WeatherTile(props) {
   const { title, icon, alt, temperature } = props
@@ -110,72 +52,20 @@ function WeatherTile(props) {
   )
 }
 
-export function CurrentWeather() {
-  const currentWeather = useSelector(state => state.weather.current)
+function parseHour(hour) {
+  const timeOfDay = hour.slice(-2)
 
-  if (currentWeather === null) {
-    return <WeatherNotLoaded />
+  if (timeOfDay === 'AM') {
+    return hour.substr(0, 5)
+  } else {
+    const hourDigits = parseInt(hour.substr(0, 2)) + 12
+    const minuteDigits = hour.substr(3, 2)
+
+    return `${hourDigits}:${minuteDigits}`
   }
-
-  const iconURL = currentWeather.condition.icon.replace('64x64', '128x128')
-
-  return (
-    <BackgroundCard>
-      <HourlyGrid>
-        <Column style={{ paddingRight: '5%' }}>
-          <img
-            src={iconURL}
-            alt={currentWeather.condition.text + ' icon'}/>
-
-          <Header style={{ padding: 0, margin: 0 }}>
-            {currentWeather.condition.text}
-          </Header>
-          <TextSecondary style={{ padding: 0, margin: 0 }}>
-            {currentWeather.temp_c}&#176;C / {currentWeather.temp_f}&#176;F
-          </TextSecondary>
-          <TextSecondary style={{ padding: 0, margin: 0, fontSize: 'small' }}>
-            Feels like: {currentWeather.feelslike_c}&#176;C
-          </TextSecondary>
-        </Column>
-        <Column>
-          <WeatherItem
-            label='Humidity'
-            value={currentWeather.humidity + '%'}/>
-          <WeatherItem
-            label='Precipitation'
-            value={currentWeather.precip_mm + ' mm'}/>
-
-          <WeatherItem
-            label='Wind'
-            value={
-              `${currentWeather.wind_kph} km/h
-              (up to ${currentWeather.gust_kph} km/h)`
-            }/>
-          <WeatherItem
-            label='Wind direction'
-            value={
-              `${currentWeather.wind_degree}° (${currentWeather.wind_dir})`
-            }/>
-
-          <WeatherItem
-            label='Pressure'
-            value={currentWeather.pressure_mb + ' hPa'}/>
-          <WeatherItem
-            label='Cloud'
-            value={currentWeather.cloud + '%'}/>
-          <WeatherItem
-            label='Visibility'
-            value={currentWeather.vis_km + ' km'}/>
-          <WeatherItem
-            label='UV index'
-            value={currentWeather.uv}/>
-        </Column>
-      </HourlyGrid>
-    </BackgroundCard>
-  )
 }
 
-export function TodayWeather() {
+export function WeatherToday() {
   const todayWeather = useSelector(state => state.weather.today)
 
   if (todayWeather === null) {
@@ -292,14 +182,4 @@ export function TodayWeather() {
       </HourlyGrid>
     </BackgroundCard>
   )
-}
-
-export function LongTermWeather() {
-  const longTermWeather = useSelector(state => state.weather.longTerm)
-
-  if (longTermWeather.length === 0) {
-    return <WeatherNotLoaded />
-  }
-
-  return <Text>Long term: {JSON.stringify(longTermWeather)}</Text>
 }
