@@ -8,7 +8,7 @@ export const THEME_ACTION_SWITCH = `${THEME_ACTION}/${ACTION_SWITCH}`
 export const themeSlice = createSlice({
   name: THEME_ACTION,
   initialState: {
-    isLight: true
+    isLight: false
   },
   reducers: {
     [ACTION_SWITCH]: state => {
