@@ -1,5 +1,8 @@
+/* eslint-disable max-len */
+
 const lightTheme = {
   primary: 'rgb(67, 94, 145)',
+  primarySelected: 'rgb(67, 94, 145, 0.12)',
   onPrimary: 'rgb(255, 255, 255)',
   primaryContainer: 'rgb(216, 225, 255)',
   onPrimaryContainer: 'rgb(0, 26, 65)',
@@ -16,6 +19,7 @@ const lightTheme = {
   onBackground: 'rgb(27, 27, 31)',
   surface: 'rgb(253, 250, 255)',
   onSurface: 'rgb(27, 27, 31)',
+  onSurfaceHover: 'rgb(27, 27, 31, 0.08)',
   surfaceVariant: 'rgb(225, 225, 236)',
   onSurfaceVariant: 'rgb(68, 71, 79)',
   surfaceTint: 'rgb(67, 94, 145)',
@@ -32,6 +36,7 @@ const lightTheme = {
 
 const darkTheme = {
   primary: 'rgb(151.0000095, 203.0000022, 255)',
+  primarySelected: 'rgb(151.0000095, 203.0000022, 255, 0.12)',
   onPrimary: 'rgb(0, 51, 83.000001)',
   primaryContainer: 'rgb(0, 74.0000055, 118.0000005)',
   onPrimaryContainer: 'rgb(206.00000325, 228.999996, 255)',
@@ -48,6 +53,7 @@ const darkTheme = {
   onBackground: 'rgb(225.99999749999998, 225.99999749999998, 225.99999749999998)',
   surface: 'rgb(27.00000027, 27.00000027, 27.00000027)',
   onSurface: 'rgb(225.99999749999998, 225.99999749999998, 225.99999749999998)',
+  onSurfaceHover: 'rgb(225.99999749999998, 225.99999749999998, 225.99999749999998, 0.08)',
   surfaceVariant: 'rgb(71.000007, 71.000007, 71.000007)',
   onSurfaceVariant: 'rgb(198.000003, 198.000003, 198.000003)',
   surfaceTint: 'rgb(151.0000095, 203.0000022, 255)',
