@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const CenterHorizontal = styled.div`
-  width: 100%;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: hidden;
 `

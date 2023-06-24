@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { BackgroundCard, GeneralDayWeather, WeatherNotLoaded } from './common'
-import { Column } from '../index'
+import { CenterHorizontal, Column } from '../index'
 
 export function WeatherLongTerm() {
   const longTermWeather = useSelector(state => state.weather.longTerm)
@@ -13,16 +13,18 @@ export function WeatherLongTerm() {
   }
 
   return (
-    <Column>
-      {longTermWeather.map((value, index) => {
-        console.log(value)
+    <CenterHorizontal>
+      <Column>
+        {longTermWeather.map((value, index) => {
+          console.log(value)
 
-        return (
-          <BackgroundCard key={index}>
-            <GeneralDayWeather date={value.date} day={value.day}/>
-          </BackgroundCard>
-        )
-      })}
-    </Column>
+          return (
+            <BackgroundCard key={index}>
+              <GeneralDayWeather date={value.date} day={value.day}/>
+            </BackgroundCard>
+          )
+        })}
+      </Column>
+    </CenterHorizontal>
   )
 }
