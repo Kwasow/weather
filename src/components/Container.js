@@ -5,6 +5,14 @@ export const Row = styled.div`
   flex-direction: row;
 `
 
+export const CenterHorizontal = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+`
+
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
