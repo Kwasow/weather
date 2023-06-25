@@ -61,8 +61,8 @@ const options = {
 export function LocationButton() {
   const dispatch = useDispatch()
 
-  function locationOnSuccess(pos) {
-    var coordinates = pos.coords
+  function locationOnSuccess(position) {
+    var coordinates = position.coords
 
     dispatch(setLocationCoordinates({
       latitude: coordinates.latitude,
@@ -70,9 +70,13 @@ export function LocationButton() {
     }))
   }
 
+  function locationOnError() {
+    console.error('Failed to get location')
+  }
+
   function onLocationChange() {
     navigator.geolocation.getCurrentPosition(
-      locationOnSuccess, undefined, options
+      locationOnSuccess, locationOnError, options
     )
   }
   
@@ -80,7 +84,7 @@ export function LocationButton() {
     if (navigator.geolocation) {
       navigator.permissions
         .query({ name: 'geolocation' })
-        .then(function (result) {
+        .then(result => {
           onLocationChange(result)
   
           result.onchange = onLocationChange
