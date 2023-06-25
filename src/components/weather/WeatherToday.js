@@ -31,10 +31,9 @@ const WeatherGridSubheader = styled(TextSecondary)`
 
 const WeatherTileCard = styled(Card)`
   display: inline-flex;
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 20px;
+  padding-left: 20px;
   margin: 5px;
-  width: 80px;
 `
 
 function WeatherTile(props) {
