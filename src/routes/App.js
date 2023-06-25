@@ -1,18 +1,19 @@
 import React from 'react'
 import {
   Background,
-  ThemeSwitcher,
-  Header,
   CenterHorizontal,
   CitySelector,
-  TabsContainer,
+  Header,
+  LastUpdated,
   Tab,
+  TabsContainer,
   TabContent,
+  ThemeSwitcher,
   WeatherCurrent,
   WeatherToday,
-  WeatherLongTerm,
-  LastUpdated
+  WeatherLongTerm
 } from '../components/index'
+import { LocationButton } from '../components/Button'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <CenterHorizontal>
         <Header>Forecast</Header>
         <CitySelector />
+        <LocationButton/>
 
         <TabsContainer>
           <Tab id={1}>Current</Tab>
