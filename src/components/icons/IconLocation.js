@@ -1,9 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react'
 
-export function IconLocation(props) {
-  const { color } = props
-
+export function IconLocation({ color }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

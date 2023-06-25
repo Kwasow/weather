@@ -36,9 +36,7 @@ const WeatherTileCard = styled(Card)`
   margin: 5px;
 `
 
-function WeatherTile(props) {
-  const { title, icon, alt, temperature } = props
-
+function WeatherTile({ alt, icon, temperature, title }) {
   return (
     <WeatherTileCard>
       <CenterHorizontal>

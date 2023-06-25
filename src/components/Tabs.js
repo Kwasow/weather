@@ -45,17 +45,15 @@ const TabContentWrapper = styled(CenterHorizontal)`
   width: 100%;
 `
 
-export function Tab(props) {
+export function Tab({ children, id }) {
   const selectedId = useSelector(state => state.tab.current)
   const dispatch = useDispatch()
-
-  const { id } = props
 
   return <StyledTab
     className={selectedId === id ? 'active' : ''}
     onClick={() => dispatch(switchTab(id))}
   >
-    {props.children}
+    {children}
   </StyledTab>
 }
 

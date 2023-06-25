@@ -48,9 +48,7 @@ const WeatherItemValue = styled(Text)`
   white-space: nowrap;
 `
 
-export function WeatherItem(props) {
-  const { label, value } = props
-
+export function WeatherItem({ label, value }) {
   return (
     <Row>
       <WeatherItemLabel>
@@ -63,9 +61,7 @@ export function WeatherItem(props) {
   )
 }
 
-export function GeneralDayWeather(props) {
-  const { date, day } = props
-
+export function GeneralDayWeather({ date, day }) {
   const iconURL = day.condition.icon.replace('64x64', '128x128')
 
   return (

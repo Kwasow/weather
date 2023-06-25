@@ -43,21 +43,19 @@ const IconLabel = styled.p`
   padding: 5px;
 `
 
-const options = {
-  enableHighAccuracy: false,
-  timeout: 5000,
-  maximumAge: 0,
-}
-
-export function IconButton(props) {
-  const { icon: Icon, onClick, label } = props
-
+export function IconButton({ icon: Icon, onClick, label }) {
   return (
     <InvisibleButton onClick={onClick}>
       <StyledIcon icon={Icon}/>
       <IconLabel>{label}</IconLabel>
     </InvisibleButton>
   )
+}
+
+const options = {
+  enableHighAccuracy: false,
+  timeout: 5000,
+  maximumAge: 0,
 }
 
 export function LocationButton() {

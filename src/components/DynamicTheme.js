@@ -6,7 +6,7 @@ import { Themes } from '../utils/theme'
 import styled from 'styled-components'
 import { Button } from './Button'
 
-export const DynamicTheme = ({children}) => {
+export const DynamicTheme = ({ children }) => {
   const theme = useSelector(
     state => state.theme.isLight ? Themes.LIGHT : Themes.DARK
   )
