@@ -6,16 +6,16 @@ import {
 import { mergeMap } from 'rxjs/operators'
 import { WEATHER_API_SEARCH } from '../../utils/consts'
 import { WEATHER_API_KEY } from '../../utils/secrets'
+import { fetchWithCache } from '../../utils/requestCache'
 
 export const locationHintsEpic = (action$, state$) => action$.pipe(
   ofType(LOCATION_ACTION_SET_USER_INPUT),
   mergeMap(() => {
-    return fetch(
+    return fetchWithCache(
       `${WEATHER_API_SEARCH}
         ?key=${WEATHER_API_KEY}
         &q=${state$.value.location.userInput}`
     )
-      .then(res => res.json())
       .then(res => {
         return {
           type: LOCATION_ACTION_SET_HINTS,

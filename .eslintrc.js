@@ -43,6 +43,10 @@ module.exports = {
     'max-len': [
       'error',
       { code: 80 }
+    ],
+    'eqeqeq': [
+      'error',
+      'always'
     ]
   },
   'settings': {
