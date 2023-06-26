@@ -14,18 +14,20 @@ import {
   WeatherLongTerm
 } from '../components/index'
 import { LocationButton } from '../components/Button'
+import { LoadingIndicator } from '../components/LoadingIndicator'
 
 function App() {
   return (
     <Background>
       <ThemeSwitcher />
       <LastUpdated />
+      <LoadingIndicator />
 
       <CenterHorizontal>
         <Header>Forecast</Header>
         <CitySelector />
         <LocationButton/>
-
+        
         <TabsContainer>
           <Tab id={1}>Current</Tab>
           <Tab id={2}>Today</Tab>

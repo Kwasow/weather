@@ -1,14 +1,24 @@
+import {
+  requestCounterDecrease,
+  requestCounterIncrease
+} from '../redux/reducers/requestCounterSlice'
+import store from '../redux/setupStore'
+
 const cache = new Map()
 
 export async function fetchWithCache(url) {
-  const cachedValue = cache.get(url)
-
-  if (cachedValue === undefined) {
-    const res = await (await fetch(url)).json()
-
-    cache.set(url, res)
-    return res
-  } else {
-    return cachedValue
+  store.dispatch(requestCounterIncrease())
+  
+  let result = cache.get(url)
+  
+  try {
+    if (result === undefined) {
+      result = await (await fetch(url)).json()
+      cache.set(url, result)
+    }
+  } finally {
+    store.dispatch(requestCounterDecrease())
   }
+
+  return result
 }
