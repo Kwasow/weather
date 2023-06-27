@@ -4,7 +4,7 @@ import { switchTheme } from '../redux/reducers/themeSlice'
 import { ThemeProvider } from 'styled-components'
 import { Themes } from '../utils/theme'
 import styled from 'styled-components'
-import { Button } from './Button'
+import { Button } from './index'
 
 export const DynamicTheme = ({ children }) => {
   const theme = useSelector(

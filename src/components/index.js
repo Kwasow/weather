@@ -1,12 +1,25 @@
 export { Background } from './Background'
-export { Button } from './Button'
-export { DynamicTheme, ThemeSwitcher } from './DynamicTheme'
-export { Text, TextSecondary, Header } from './Text'
-export { StyledSelector, CitySelector } from './Selector'
-export { Tab, TabsContainer, TabContent } from './Tabs'
-export { CenterHorizontal, Column, Grid, Row } from './Container'
+export { Button, IconButton, LocationButton } from './Button'
 export { Card } from './Card'
+export {
+  CenterHorizontal,
+  CenterVertical,
+  Column,
+  Grid,
+  Row
+} from './Container'
+export { DynamicTheme, ThemeSwitcher } from './DynamicTheme'
 export { LastUpdated } from './LastUpdated'
+export { LoadingIndicator } from './LoadingIndicator'
+export { CitySelector, StyledSelector } from './Selector'
+export { Tab, TabsContainer, TabContent } from './Tabs'
+export {
+  Header,
+  Text,
+  TextNoPadding,
+  TextSecondary,
+  TextSecondaryNoPadding
+} from './Text'
 export { WeatherCurrent } from './weather/WeatherCurrent'
 export { WeatherToday } from './weather/WeatherToday'
 export { WeatherLongTerm } from './weather/WeatherLongTerm'

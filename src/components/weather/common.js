@@ -7,8 +7,9 @@ import {
   Grid,
   Header,
   Row,
-  Text,
-  TextSecondary
+  TextNoPadding,
+  TextSecondary,
+  TextSecondaryNoPadding
 } from '../index'
 
 export function WeatherNotLoaded() {
@@ -32,14 +33,12 @@ export const DayGrid = styled(Grid)`
   padding-bottom: 50px;
 `
 
-const WeatherItemLabel = styled(Text)`
-  margin: 0;
+const WeatherItemLabel = styled(TextNoPadding)`
   margin-bottom: 5px;
   margin-top: 5px;
 `
 
-const WeatherItemValue = styled(Text)`
-  margin: 0;
+const WeatherItemValue = styled(TextNoPadding)`
   margin-bottom: 5px;
   margin-top: 5px;
   margin-left: 5px;
@@ -75,10 +74,10 @@ export function GeneralDayWeather({ date, day }) {
           <Header style={{ margin: 0, padding: 0 }}>
             {day.condition.text}
           </Header>
-          <TextSecondary style={{ marginTop: 0, paddingTop: 0 }}>
+          <TextSecondaryNoPadding>
             {day.maxtemp_c}&#176;C{' '}
             ({day.mintemp_c}&#176;C)
-          </TextSecondary>
+          </TextSecondaryNoPadding>
         </CenterHorizontal>
         <Column>
           <WeatherItem

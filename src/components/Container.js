@@ -1,10 +1,5 @@
 import styled from 'styled-components'
 
-export const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-`
-
 export const CenterHorizontal = styled.div`
   display: flex;
   align-items: center;
@@ -14,6 +9,11 @@ export const CenterHorizontal = styled.div`
 `
 
 export const CenterVertical = styled(CenterHorizontal)`
+  flex-direction: row;
+`
+
+export const Row = styled.div`
+  display: flex;
   flex-direction: row;
 `
 

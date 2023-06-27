@@ -6,7 +6,7 @@ import {
   WeatherItem,
   WeatherNotLoaded
 } from './common'
-import { Column, Header, TextSecondary } from '../index'
+import { Column, Header, TextSecondaryNoPadding } from '../index'
 
 export function WeatherCurrent() {
   const currentWeather = useSelector(state => state.weather.current)
@@ -28,12 +28,12 @@ export function WeatherCurrent() {
           <Header style={{ padding: 0, margin: 0 }}>
             {currentWeather.condition.text}
           </Header>
-          <TextSecondary style={{ padding: 0, margin: 0 }}>
+          <TextSecondaryNoPadding>
             {currentWeather.temp_c}&#176;C / {currentWeather.temp_f}&#176;F
-          </TextSecondary>
-          <TextSecondary style={{ padding: 0, margin: 0, fontSize: 'small' }}>
+          </TextSecondaryNoPadding>
+          <TextSecondaryNoPadding style={{ fontSize: 'small' }}>
             Feels like: {currentWeather.feelslike_c}&#176;C
-          </TextSecondary>
+          </TextSecondaryNoPadding>
         </Column>
         <Column>
           <WeatherItem
