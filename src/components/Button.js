@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
 import { setLocationCoordinates } from '../redux/reducers/locationSlice'
 import { IconLocation, StyledIcon } from './icons/index'
+import {
+  requestCounterDecrease,
+  requestCounterIncrease
+} from '../redux/reducers/requestCounterSlice'
 
 export const Button = styled.button`
   background-color: ${props => props.theme.primary};
@@ -62,19 +66,25 @@ export function LocationButton() {
   const dispatch = useDispatch()
 
   function locationOnSuccess(position) {
+    dispatch(requestCounterDecrease())
+
     var coordinates = position.coords
 
     dispatch(setLocationCoordinates({
-      latitude: coordinates.latitude,
-      longitude: coordinates.longitude
+      latitude: coordinates.latitude.toFixed(4),
+      longitude: coordinates.longitude.toFixed(4)
     }))
   }
 
   function locationOnError() {
+    dispatch(requestCounterDecrease())
+
     console.error('Failed to get location')
   }
 
   function onLocationChange() {
+    dispatch(requestCounterIncrease())
+
     navigator.geolocation.getCurrentPosition(
       locationOnSuccess, locationOnError, options
     )

@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Oval } from 'react-loader-spinner'
-import { Text } from './index'
 import styled, { ThemeContext } from 'styled-components'
 
 const LoadingIndicatorWrapper = styled.div`
@@ -19,8 +17,6 @@ export function LoadingIndicator() {
     state => state.requestCounter.runningRequests
   )
   const themeContext = useContext(ThemeContext)
-
-  console.log(LoadingIndicatorWrapper.toString().slice(1))
 
   return (
     <LoadingIndicatorWrapper>

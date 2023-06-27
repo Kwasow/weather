@@ -2,8 +2,8 @@ import { combineEpics } from 'redux-observable'
 import { locationHintsEpic } from './locationHintsEpic'
 import { resetWeatherEpic } from './resetWeatherEpic'
 import {
-  loadCoordinatesWeatherEpic,
-  loadLocationWeatherEpic
+  loadLocationWeatherEpic,
+  loadCoordinatesLocationEpic
 } from './loadWeatherEpic'
 import { tabSelectorEpic } from './tabSelectorEpic'
 
@@ -11,7 +11,7 @@ const rootEpic = combineEpics(
   locationHintsEpic,
   resetWeatherEpic,
   loadLocationWeatherEpic,
-  loadCoordinatesWeatherEpic,
+  loadCoordinatesLocationEpic,
   tabSelectorEpic
 )
 

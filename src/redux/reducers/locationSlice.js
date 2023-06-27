@@ -36,6 +36,7 @@ export const locationSlice = createSlice({
     },
     [ACTION_SET_SELECTED_LOCATION]: (state, action) => {
       state.current = action.payload
+      state.userInput = `${action.payload.name} (${action.payload.country})`
     },
     [ACTION_SET_COORDINATES]: (state, action) => {
       state.latitude = action.payload.latitude

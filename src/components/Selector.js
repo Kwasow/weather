@@ -62,6 +62,7 @@ export const StyledSelector = styled(Select)`
 export function CitySelector() {
   const dispatch = useDispatch()
   const hints = useSelector(state => state.location.hints)
+
   const options = hints.map((value, index) => {
     const name = value.name
     const country = value.country
@@ -78,7 +79,9 @@ export function CitySelector() {
     options={options}
     isClearable
     onInputChange={newValue => {
-      dispatch(setUserInputLocation(newValue))
+      if (newValue.length > 0) {
+        dispatch(setUserInputLocation(newValue))
+      }
     }}
     onChange={(newValue) => {
       if (newValue !== null) {
