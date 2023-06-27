@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { switchTab } from '../redux/reducers/tabSlice'
 import { CenterHorizontal } from './Container'
+import { Header } from './Text'
 
 export const TabsContainer = styled.div`
   background-color: ${props => props.theme.surface};
@@ -59,10 +60,16 @@ export function Tab({ children, id }) {
 
 export function TabContent(props) {
   const selectedId = useSelector(state => state.tab.current)
+  const currentLocation = useSelector(state => state.location.current.name)
   
   const { id } = props
 
   return id === selectedId
-    ? <TabContentWrapper>{props.children}</TabContentWrapper>
+    ? (
+      <TabContentWrapper>
+        <Header>{currentLocation}</Header>
+        {props.children}
+      </TabContentWrapper>
+    )
     : <></>
 }
