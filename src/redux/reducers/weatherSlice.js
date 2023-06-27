@@ -22,7 +22,7 @@ export const weatherSlice = createSlice({
       state.current = action.payload.current
       state.today = action.payload.forecast.forecastday[0]
       state.longTerm = action.payload.forecast.forecastday
-      state.lastChecked = action.payload.current.last_updated_epoch
+      state.lastChecked = Date.now()
     },
     [ACTION_RESET]: state => {
       state.current = null
