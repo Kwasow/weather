@@ -5,10 +5,7 @@ import styled, { ThemeContext } from 'styled-components'
 
 const LoadingIndicatorWrapper = styled.div`
   div {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    top: 50%;
+    padding-left: 10px; 
   }
 `
 
@@ -26,7 +23,9 @@ export function LoadingIndicator() {
         ariaLabel='oval-loading'
         secondaryColor={themeContext.primarySelected}
         strokeWidth={5}
-        strokeWidthSecondary={5}/>
+        strokeWidthSecondary={5}
+        height={20}
+        width={20}/>
     </LoadingIndicatorWrapper>
   )
 }

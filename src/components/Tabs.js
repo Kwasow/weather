@@ -60,14 +60,14 @@ export function Tab({ children, id }) {
 
 export function TabContent(props) {
   const selectedId = useSelector(state => state.tab.current)
-  const currentLocation = useSelector(state => state.location.current.name)
+  const currentLocation = useSelector(state => state.location.current)
   
   const { id } = props
 
   return id === selectedId
     ? (
       <TabContentWrapper>
-        <Header>{currentLocation}</Header>
+        {currentLocation && <Header>{currentLocation.name}</Header>}
         {props.children}
       </TabContentWrapper>
     )

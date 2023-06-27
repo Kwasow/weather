@@ -11,20 +11,23 @@ import {
   ThemeSwitcher,
   WeatherCurrent,
   WeatherToday,
-  WeatherLongTerm
+  WeatherLongTerm,
 } from '../components/index'
 import { LocationButton } from '../components/Button'
 import { LoadingIndicator } from '../components/LoadingIndicator'
+import { CenterVertical } from '../components/Container'
 
 function App() {
   return (
     <Background>
       <ThemeSwitcher />
       <LastUpdated />
-      <LoadingIndicator />
 
       <CenterHorizontal>
-        <Header>Forecast</Header>
+        <CenterVertical>
+          <Header>Forecast</Header>
+          <LoadingIndicator />
+        </CenterVertical>
         <CitySelector />
         <LocationButton/>
         

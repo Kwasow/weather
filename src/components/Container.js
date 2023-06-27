@@ -13,6 +13,10 @@ export const CenterHorizontal = styled.div`
   overflow: hidden;
 `
 
+export const CenterVertical = styled(CenterHorizontal)`
+  flex-direction: row;
+`
+
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
