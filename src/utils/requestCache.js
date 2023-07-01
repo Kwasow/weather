@@ -11,21 +11,14 @@ const minutes15 = 1000 * 60 * 15
 
 export async function fetchWithCache(url) {
   store.dispatch(requestCounterIncrease())
-  
-  const now = Date.now()
-  let result = cache.get(url)
 
-  const weatherDataOld = (
-    url.includes(WEATHER_API_FORECAST)
-    && result !== undefined
-    && now - result.timestamp > minutes15
-  )
+  let result = getCachedResult(url)
 
   try {
-    if (result === undefined || weatherDataOld) {
+    if (result === undefined) {
       result = await (await fetch(url)).json()
       cache.set(url, {
-        timestamp: now,
+        timestamp: Date.now(),
         response: result
       })
     } else {
@@ -36,4 +29,21 @@ export async function fetchWithCache(url) {
   }
 
   return result
+}
+
+function getCachedResult(url) {
+  const result = cache.get(url)
+  const now = Date.now()
+  
+  const weatherDataOld = (
+    url.includes(WEATHER_API_FORECAST)
+    && result !== undefined
+    && now - result.timestamp > minutes15
+  )
+
+  if (weatherDataOld) {
+    return undefined
+  } else {
+    return result
+  }
 }
