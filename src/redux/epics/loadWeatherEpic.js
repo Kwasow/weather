@@ -13,10 +13,10 @@ export const loadLocationWeatherEpic = (action$, state$) => action$.pipe(
   ofType(LOCATION_ACTION_SET_SELECTED_LOCATION),
   mergeMap(() => {
     const location = state$.value.location.current.url
-
-    return fetchWithCache(
+    const url =
       `${WEATHER_API_FORECAST}?key=${WEATHER_API_KEY}&q=${location}&days=3`
-    )
+
+    return fetchWithCache(url)
       .then(res => {
         return {
           type: WEATHER_ACTION_SET_CURRENT,

@@ -18,7 +18,7 @@ export const niceWeatherEpic = (action$, state$) => action$.pipe(
     let testsPassed = 0
 
     if (checkIfRainGood(daysArray)) testsPassed++
-    if (checkIfAvgTempsGoos(daysArray)) testsPassed++
+    if (checkIfAvgTempsGood(daysArray)) testsPassed++
     if (checkIfTempLimitsGood(daysArray)) testsPassed++
 
     return {
@@ -38,7 +38,7 @@ function checkIfRainGood(daysArray) {
   return true
 }
 
-function checkIfAvgTempsGoos(daysArray) {
+function checkIfAvgTempsGood(daysArray) {
   for (const day of daysArray) {
     if (
       day.day.avgtemp_c < MIN_AVG_TEMP
@@ -64,13 +64,7 @@ function checkIfTempLimitsGood(daysArray) {
 }
 
 function decideNiceness(testsPassed) {
-  if (testsPassed === 3) {
-    return WeatherNiceness.Nice
-  }
-
-  if (testsPassed === 2) {
-    return WeatherNiceness.Passable
-  }
-
+  if (testsPassed === 3) return WeatherNiceness.Nice
+  if (testsPassed === 2) return WeatherNiceness.Passable
   return WeatherNiceness.NotNice
 }

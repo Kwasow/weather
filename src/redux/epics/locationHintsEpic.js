@@ -11,11 +11,12 @@ import { fetchWithCache } from '../../utils/requestCache'
 export const locationHintsEpic = (action$, state$) => action$.pipe(
   ofType(LOCATION_ACTION_SET_USER_INPUT),
   mergeMap(() => {
-    return fetchWithCache(
+    const url =
       `${WEATHER_API_SEARCH}
-        ?key=${WEATHER_API_KEY}
-        &q=${state$.value.location.userInput}`
-    )
+      ?key=${WEATHER_API_KEY}
+      &q=${state$.value.location.userInput}`
+
+    return fetchWithCache(url)
       .then(res => {
         return {
           type: LOCATION_ACTION_SET_HINTS,

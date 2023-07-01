@@ -9,6 +9,7 @@ export {
   Row
 } from './Container'
 export { DynamicTheme, ThemeSwitcher } from './DynamicTheme'
+export { GifView } from './GifView'
 export { LastUpdated } from './LastUpdated'
 export { LoadingIndicator } from './LoadingIndicator'
 export { CitySelector, StyledSelector } from './Selector'
