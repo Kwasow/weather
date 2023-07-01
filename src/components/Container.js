@@ -5,7 +5,7 @@ export const CenterHorizontal = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  overflow: hidden;
+  width: 100%;
 `
 
 export const CenterVertical = styled(CenterHorizontal)`
@@ -20,8 +20,6 @@ export const Row = styled.div`
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  white-space: pre;
-  overflow: hidden;
 `
 
 export const Grid = styled.div`
@@ -30,5 +28,4 @@ export const Grid = styled.div`
   align-items: center;
   grid-row-gap: 20px;
   grid-column-gap: 20px;
-  overflow: hidden;
 `

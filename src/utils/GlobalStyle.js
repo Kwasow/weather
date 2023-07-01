@@ -17,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
   html {
     font-family: 'Open Sans';
+    padding: 0;
+    margin: 0;
   }
 
   button {

@@ -9,8 +9,8 @@ export const WeatherNiceness = {
 
 const WEATHER_ACTION = 'weather'
 const ACTION_SET_CURRENT = 'setCurrentWeather'
-const ACTION_RESET = 'resetWeather'
 const ACTION_SET_NICE = 'setWeatherNiceness'
+const ACTION_RESET = 'resetWeather'
 
 export const WEATHER_ACTION_SET_CURRENT =
   `${WEATHER_ACTION}/${ACTION_SET_CURRENT}`
@@ -50,6 +50,7 @@ export const weatherSlice = createSlice({
 
 export const {
   setCurrentWeather,
+  setWeatherNiceness,
   resetWeather
 } = weatherSlice.actions
 

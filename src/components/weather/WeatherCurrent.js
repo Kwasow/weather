@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {
   BackgroundCard,
-  HourlyGrid,
+  DayGrid,
   WeatherItem,
   WeatherNotLoaded
 } from './common'
@@ -25,11 +25,13 @@ export function WeatherCurrent() {
   return (
     <>
       <BackgroundCard>
-        <HourlyGrid>
-          <Column style={{ paddingRight: '5%' }}>
+        <DayGrid>
+          <Column>
             <img
               src={iconURL}
-              alt={currentWeather.condition.text + ' icon'}/>
+              alt={currentWeather.condition.text + ' icon'}
+              width='128'
+              height='128'/>
 
             <Header style={{ padding: 0, margin: 0 }}>
               {currentWeather.condition.text}
@@ -53,7 +55,7 @@ export function WeatherCurrent() {
               label='Wind'
               value={
                 `${currentWeather.wind_kph} km/h
-                (up to ${currentWeather.gust_kph} km/h)`
+                (gusts of ${currentWeather.gust_kph} km/h)`
               }/>
             <WeatherItem
               label='Wind direction'
@@ -74,7 +76,7 @@ export function WeatherCurrent() {
               label='UV index'
               value={currentWeather.uv}/>
           </Column>
-        </HourlyGrid>
+        </DayGrid>
       </BackgroundCard>
 
       <GifView />

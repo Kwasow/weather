@@ -19,18 +19,19 @@ export function WeatherNotLoaded() {
 }
 
 export const BackgroundCard = styled(Card)`
-  padding: 2%;
+  padding: 40px;
   margin-top: 1vh;
   margin-bottom: 1vh;
 `
 
 export const HourlyGrid = styled(Grid)`
   grid-template-columns: auto auto;
+  padding-top: 50px;
 `
 
 export const DayGrid = styled(Grid)`
-  grid-template-columns: 50% 50%;
-  padding-bottom: 50px;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
 `
 
 const WeatherItemLabel = styled(TextNoPadding)`
@@ -41,10 +42,9 @@ const WeatherItemLabel = styled(TextNoPadding)`
 const WeatherItemValue = styled(TextNoPadding)`
   margin-bottom: 5px;
   margin-top: 5px;
-  margin-left: 5px;
+  margin-left: 0.5rem;
   color: ${props => props.theme.primary};
   font-weight: bold;
-  white-space: nowrap;
 `
 
 export function WeatherItem({ label, value }) {
@@ -65,7 +65,7 @@ export function GeneralDayWeather({ date, day }) {
 
   return (
     <CenterHorizontal>
-      {date && <TextSecondary>{date}</TextSecondary>}
+      {date && <TextSecondaryNoPadding>{date}</TextSecondaryNoPadding>}
       <DayGrid>
         <CenterHorizontal>
           <img

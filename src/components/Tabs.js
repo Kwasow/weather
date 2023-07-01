@@ -6,7 +6,6 @@ import { CenterHorizontal, Header } from './index'
 
 export const TabsContainer = styled.div`
   background-color: ${props => props.theme.surface};
-  overflow: hidden;
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -41,7 +40,7 @@ const StyledTab = styled.button`
 `
 
 const TabContentWrapper = styled(CenterHorizontal)`
-  padding: 0.5%;
+  margin: 0.5%;
   width: 100%;
 `
 
