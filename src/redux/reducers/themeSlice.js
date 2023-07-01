@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const ACTION_SWITCH = 'switchTheme'
 const THEME_ACTION = 'theme'
+const ACTION_SWITCH = 'switchTheme'
 
 export const THEME_ACTION_SWITCH = `${THEME_ACTION}/${ACTION_SWITCH}`
 

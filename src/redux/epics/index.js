@@ -7,6 +7,8 @@ import {
 } from './loadWeatherEpic'
 import { tabSelectorEpic } from './tabSelectorEpic'
 import { niceWeatherEpic } from './niceWeatherEpic'
+import { loadGifEpic } from './loadGifEpic'
+import { resetGifsEpic } from './resetGifsEpic'
 
 const rootEpic = combineEpics(
   locationHintsEpic,
@@ -14,7 +16,9 @@ const rootEpic = combineEpics(
   loadLocationWeatherEpic,
   loadCoordinatesLocationEpic,
   tabSelectorEpic,
-  niceWeatherEpic
+  niceWeatherEpic,
+  loadGifEpic,
+  resetGifsEpic
 )
 
 export default rootEpic
