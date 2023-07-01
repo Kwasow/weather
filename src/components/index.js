@@ -24,3 +24,4 @@ export {
 export { WeatherCurrent } from './weather/WeatherCurrent'
 export { WeatherToday } from './weather/WeatherToday'
 export { WeatherLongTerm } from './weather/WeatherLongTerm'
+export { Video } from './Video'

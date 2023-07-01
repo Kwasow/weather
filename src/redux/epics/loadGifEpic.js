@@ -16,7 +16,7 @@ export const loadGifEpic = (action$, state$) => action$.pipe(
       .then(res => {
         return {
           type: WEATHER_GIF_ACTION_SET,
-          payload: res.error ? [] : res
+          payload: res.error ? [] : res.results
         }
       })
       .catch(err => {
