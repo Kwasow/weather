@@ -7,6 +7,17 @@ Task: _Paweł Gołąb_
 
 Solution: _Karol Wąsowski_
 
+## Before you begin
+
+To run and build the app you need both an API key for
+[WeatherAPI](https://www.weatherapi.com) and [Tenor](https://tenor.com). Create a
+file under `src/utils/secrets.js` and add the keys like this:
+
+```js
+export const WEATHER_API_KEY = 'YOUR_WEATHER_KEY'
+export const TENOR_API_KEY = ' YOUR_TENOR_KEY '
+```
+
 ## Available tasks
 
 ### `yarn start`
