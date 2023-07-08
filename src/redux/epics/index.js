@@ -8,6 +8,7 @@ import {
 import { tabSelectorEpic } from './tabSelectorEpic'
 import { loadGifEpic } from './loadGifEpic'
 import { resetGifsEpic } from './resetGifsEpic'
+import { switchGifEpic } from './switchGifEpic'
 
 const rootEpic = combineEpics(
   locationHintsEpic,
@@ -16,7 +17,8 @@ const rootEpic = combineEpics(
   loadCoordinatesLocationEpic,
   tabSelectorEpic,
   loadGifEpic,
-  resetGifsEpic
+  resetGifsEpic,
+  switchGifEpic
 )
 
 export default rootEpic
