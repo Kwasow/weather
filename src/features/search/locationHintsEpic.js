@@ -2,7 +2,7 @@ import { ofType } from 'redux-observable'
 import {
   LOCATION_ACTION_SET_USER_INPUT,
   LOCATION_ACTION_SET_HINTS
-} from '../reducers/locationSlice'
+} from './locationSlice'
 import { mergeMap } from 'rxjs/operators'
 import { WEATHER_API_SEARCH } from '../../utils/consts'
 import { WEATHER_API_KEY } from '../../utils/secrets'

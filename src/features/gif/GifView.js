@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Video } from './index'
+import { Video } from '../../components'
 
 export function GifView() {
   const gifs = useSelector(state => state.weatherGif.gifs)

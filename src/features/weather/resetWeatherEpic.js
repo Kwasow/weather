@@ -1,7 +1,7 @@
 import { ofType } from 'redux-observable'
 import { map } from 'rxjs/operators'
-import { LOCATION_ACTION_RESET } from '../reducers/locationSlice'
-import { WEATHER_ACTION_RESET } from '../reducers/weatherSlice'
+import { LOCATION_ACTION_RESET } from '../search/locationSlice'
+import { WEATHER_ACTION_RESET } from './weatherSlice'
 
 export const resetWeatherEpic = (action$) => action$.pipe(
   ofType(LOCATION_ACTION_RESET),

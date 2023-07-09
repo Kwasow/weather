@@ -10,7 +10,7 @@ import {
   TextNoPadding,
   TextSecondary,
   TextSecondaryNoPadding
-} from '../index'
+} from '../../components'
 
 export function WeatherNotLoaded() {
   return <TextSecondary>

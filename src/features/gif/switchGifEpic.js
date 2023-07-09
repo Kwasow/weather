@@ -5,7 +5,7 @@ import {
   WEATHER_GIF_ACTION_NEXT,
   WEATHER_GIF_ACTION_RESET,
   WEATHER_GIF_ACTION_SET
-} from '../reducers/weatherGifSlice'
+} from './weatherGifSlice'
 
 // 30 seconds in milliseconds
 const gifRefreshInterval = 1000 * 30

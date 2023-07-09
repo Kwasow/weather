@@ -6,7 +6,7 @@ import {
   WeatherItem,
   WeatherNotLoaded
 } from './common'
-import { CenterHorizontal, Column } from '../index'
+import { CenterHorizontal, Column } from '../../components'
 
 export function WeatherLongTerm() {
   const longTermWeather = useSelector(state => state.weather.longTerm)

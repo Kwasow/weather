@@ -15,7 +15,7 @@ import {
   Row,
   Text,
   TextSecondary
-} from '../index'
+} from '../../components'
 
 const WeatherGridHeader = styled(Header)`
   text-align: center;

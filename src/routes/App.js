@@ -2,20 +2,18 @@ import React from 'react'
 import {
   Background,
   CenterHorizontal,
-  CitySelector,
+  CenterVertical,
   Header,
   LastUpdated,
-  Tab,
-  TabsContainer,
-  TabContent,
-  ThemeSwitcher,
-  WeatherCurrent,
-  WeatherToday,
-  WeatherLongTerm,
+  LoadingIndicator
 } from '../components/index'
-import { LocationButton } from '../components/Button'
-import { LoadingIndicator } from '../components/LoadingIndicator'
-import { CenterVertical } from '../components/Container'
+import { ThemeSwitcher } from '../features/theme/ThemeSwitcher'
+import { CitySelector } from '../features/search/CitySelector'
+import { LocationButton } from '../features/search/LocationButton'
+import { Tab, TabContent, TabsContainer } from '../features/weatherTabs/Tabs'
+import { WeatherCurrent } from '../features/weather/WeatherCurrent'
+import { WeatherLongTerm } from '../features/weather/WeatherLongTerm'
+import { WeatherToday } from '../features/weather/WeatherToday'
 
 function App() {
   return (

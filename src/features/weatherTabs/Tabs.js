@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { switchTab } from '../redux/reducers/tabSlice'
-import { CenterHorizontal, Header } from './index'
+import { switchTab } from './tabSlice'
+import { CenterHorizontal, Header } from '../../components'
 
 export const TabsContainer = styled.div`
   background-color: ${props => props.theme.surface};

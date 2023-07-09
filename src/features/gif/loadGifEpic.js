@@ -3,8 +3,8 @@ import { mergeMap } from 'rxjs/operators'
 import { fetchWithCache } from '../../utils/requestCache'
 import { TENOR_API_SEARCH } from '../../utils/consts'
 import { TENOR_API_KEY } from '../../utils/secrets'
-import { WEATHER_GIF_ACTION_SET } from '../reducers/weatherGifSlice'
-import { WEATHER_ACTION_SET_CURRENT } from '../reducers/weatherSlice'
+import { WEATHER_GIF_ACTION_SET } from './weatherGifSlice'
+import { WEATHER_ACTION_SET_CURRENT } from '../weather/weatherSlice'
 
 export const loadGifEpic = (action$, state$) => action$.pipe(
   ofType(WEATHER_ACTION_SET_CURRENT),

@@ -8,10 +8,10 @@ import {
 } from './common'
 import {
   Column,
-  GifView,
   Header,
   TextSecondaryNoPadding
-} from '../index'
+} from '../../components'
+import { GifView } from '../gif/GifView'
 
 export function WeatherCurrent() {
   const currentWeather = useSelector(state => state.weather.current)

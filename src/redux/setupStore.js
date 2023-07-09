@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
-import rootReducer from './reducers/index'
+import rootReducer from './rootReducer'
 import { createEpicMiddleware } from 'redux-observable'
-import rootEpic from './epics'
+import rootEpic from './rootEpic'
 
 const DEBUG = true
 
