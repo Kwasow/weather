@@ -7,13 +7,19 @@ import {
   LastUpdated,
   LoadingIndicator
 } from '../components/index'
-import { ThemeSwitcher } from '../features/theme/ThemeSwitcher'
-import { CitySelector } from '../features/search/CitySelector'
-import { LocationButton } from '../features/search/LocationButton'
-import { Tab, TabContent, TabsContainer } from '../features/weatherTabs/Tabs'
-import { WeatherCurrent } from '../features/weather/WeatherCurrent'
-import { WeatherLongTerm } from '../features/weather/WeatherLongTerm'
-import { WeatherToday } from '../features/weather/WeatherToday'
+import { ThemeSwitcher } from '../features/theme/components'
+import { CitySelector } from '../features/search/components'
+import { LocationButton } from '../features/search/components'
+import {
+  Tab,
+  TabContent,
+  TabsContainer
+} from '../features/weatherTabs/components'
+import {
+  WeatherCurrent,
+  WeatherLongTerm,
+  WeatherToday
+} from '../features/weather/components'
 
 function App() {
   return (

@@ -2,12 +2,13 @@ import { ofType } from 'redux-observable'
 import {
   LOCATION_ACTION_SET_USER_INPUT,
   LOCATION_ACTION_SET_HINTS
-} from './locationSlice'
+} from './slice'
 import { mergeMap } from 'rxjs/operators'
 import { WEATHER_API_SEARCH } from '../../utils/consts'
 import { WEATHER_API_KEY } from '../../utils/secrets'
 import { fetchWithCache } from '../../utils/requestCache'
 
+/* ============================ locationHintsEpic =========================== */
 export const locationHintsEpic = (action$, state$) => action$.pipe(
   ofType(LOCATION_ACTION_SET_USER_INPUT),
   mergeMap(() => {

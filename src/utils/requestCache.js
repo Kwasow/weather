@@ -1,7 +1,7 @@
 import {
   requestCounterDecrease,
   requestCounterIncrease
-} from '../redux/reducers/requestCounterSlice'
+} from '../features/requestCounter/slice'
 import store from '../redux/setupStore'
 import { WEATHER_API_FORECAST } from './consts'
 

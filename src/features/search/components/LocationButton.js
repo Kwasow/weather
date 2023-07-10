@@ -1,12 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { setLocationCoordinates } from './locationSlice'
-import { IconLocation } from '../../components/icons'
+import { setLocationCoordinates } from '../slice'
+import { IconLocation } from '../../../components/icons'
 import {
   requestCounterDecrease,
   requestCounterIncrease
-} from '../../redux/reducers/requestCounterSlice'
-import { IconButton } from '../../components'
+} from '../../requestCounter/slice'
+import { IconButton } from '../../../components'
 
 const options = {
   enableHighAccuracy: false,

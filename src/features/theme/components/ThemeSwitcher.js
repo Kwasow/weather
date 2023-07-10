@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '../../components'
-import { switchTheme } from './themeSlice'
+import { Button } from '../../../components'
+import { switchTheme } from '../slice'
 import { useDispatch } from 'react-redux'
 
 const ThemeSwitcherButton = styled(Button)`

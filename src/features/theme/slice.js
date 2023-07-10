@@ -5,7 +5,7 @@ const ACTION_SWITCH = 'switchTheme'
 
 export const THEME_ACTION_SWITCH = `${THEME_ACTION}/${ACTION_SWITCH}`
 
-export const themeSlice = createSlice({
+const themeSlice = createSlice({
   name: THEME_ACTION,
   initialState: {
     isLight: false

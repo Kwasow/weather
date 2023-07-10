@@ -1,8 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
-import { switchTab } from './tabSlice'
-import { CenterHorizontal, Header } from '../../components'
+import { switchTab } from '../slice'
 
 export const TabsContainer = styled.div`
   background-color: ${props => props.theme.surface};
@@ -39,11 +38,6 @@ const StyledTab = styled.button`
   }
 `
 
-const TabContentWrapper = styled(CenterHorizontal)`
-  margin: 0.5%;
-  width: 100%;
-`
-
 export function Tab({ children, id }) {
   const selectedId = useSelector(state => state.tab.current)
   const dispatch = useDispatch()
@@ -54,20 +48,4 @@ export function Tab({ children, id }) {
   >
     {children}
   </StyledTab>
-}
-
-export function TabContent(props) {
-  const selectedId = useSelector(state => state.tab.current)
-  const currentLocation = useSelector(state => state.location.current)
-  
-  const { id } = props
-
-  return id === selectedId
-    ? (
-      <TabContentWrapper>
-        {currentLocation && <Header>{currentLocation.name}</Header>}
-        {props.children}
-      </TabContentWrapper>
-    )
-    : <></>
 }

@@ -14,7 +14,7 @@ export const WEATHER_GIF_ACTION_RESET =
 
 export const NO_GIFS = -1
 
-export const weatherGifSlice = createSlice({
+const weatherGifSlice = createSlice({
   name: WEATHER_GIF_ACTION,
   initialState: {
     gifs: [],

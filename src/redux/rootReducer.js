@@ -1,10 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import themeReducer from '../features/theme/themeSlice'
-import locationReducer from '../features/search/locationSlice'
-import weatherReducer from '../features/weather/weatherSlice'
-import tabReducer from '../features/weatherTabs/tabSlice'
-import requestCounterReducer from './reducers/requestCounterSlice'
-import weatherGifReducer from '../features/gif/weatherGifSlice'
+import themeReducer from '../features/theme/slice'
+import locationReducer from '../features/search/slice'
+import weatherReducer from '../features/weather/slice'
+import tabReducer from '../features/weatherTabs/slice'
+import requestCounterReducer from '../features/requestCounter/slice'
+import weatherGifReducer from '../features/weatherGif/slice'
 
 const rootReducer = combineReducers({
   theme: themeReducer,

@@ -4,8 +4,8 @@ import {
   resetLocation,
   setSelectedLocation,
   setUserInputLocation
-} from './locationSlice'
-import { StyledSelector } from '../../components'
+} from '../slice'
+import { StyledSelector } from '../../../components'
 
 export function CitySelector() {
   const dispatch = useDispatch()

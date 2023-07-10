@@ -10,8 +10,8 @@ import {
   Column,
   Header,
   TextSecondaryNoPadding
-} from '../../components'
-import { GifView } from '../gif/GifView'
+} from '../../../components'
+import { GifView } from '../../weatherGif/components'
 
 export function WeatherCurrent() {
   const currentWeather = useSelector(state => state.weather.current)

@@ -18,7 +18,7 @@ export const LOCATION_ACTION_SET_COORDINATES =
 export const LOCATION_ACTION_RESET =
   `${LOCATION_ACTION}/${ACTION_RESET}`
 
-export const locationSlice = createSlice({
+const locationSlice = createSlice({
   name: LOCATION_ACTION,
   initialState: {
     userInput: '',
