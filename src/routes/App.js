@@ -7,8 +7,7 @@ import {
   LastUpdated
 } from '../components/index'
 import { ThemeSwitcher } from '../features/theme/components'
-import { CitySelector } from '../features/search/components'
-import { LocationButton } from '../features/search/components'
+import { CitySelector, LocationButton } from '../features/location/components'
 import {
   Tab,
   TabContent,

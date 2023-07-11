@@ -10,7 +10,7 @@ import {
   WEATHER_GIF_ACTION_SET
 } from './slice'
 import { WEATHER_ACTION_SET_CURRENT } from '../weather/slice'
-import { LOCATION_ACTION_RESET } from '../search/slice'
+import { LOCATION_ACTION_RESET } from '../location/slice'
 
 /* =============================== loadGifEpic ============================== */
 export const loadGifEpic = (action$, state$) => action$.pipe(

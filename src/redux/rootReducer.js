@@ -1,6 +1,6 @@
 import { combineReducers } from '@reduxjs/toolkit'
 import themeReducer from '../features/theme/slice'
-import locationReducer from '../features/search/slice'
+import locationReducer from '../features/location/slice'
 import weatherReducer from '../features/weather/slice'
 import tabReducer from '../features/weatherTabs/slice'
 import requestCounterReducer from '../features/requestCounter/slice'

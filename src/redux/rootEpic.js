@@ -2,7 +2,7 @@ import { combineEpics } from 'redux-observable'
 import {
   loadCoordinatesEpic,
   locationHintsEpic
-} from '../features/search/middleware'
+} from '../features/location/middleware'
 import {
   loadLocationWeatherEpic,
   loadCoordinatesLocationEpic,
