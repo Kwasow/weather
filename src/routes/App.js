@@ -4,8 +4,7 @@ import {
   CenterHorizontal,
   CenterVertical,
   Header,
-  LastUpdated,
-  LoadingIndicator
+  LastUpdated
 } from '../components/index'
 import { ThemeSwitcher } from '../features/theme/components'
 import { CitySelector } from '../features/search/components'
@@ -20,6 +19,7 @@ import {
   WeatherLongTerm,
   WeatherToday
 } from '../features/weather/components'
+import { LoadingIndicator } from '../features/requestCounter/components'
 
 function App() {
   return (

@@ -1,5 +1,8 @@
 import { combineEpics } from 'redux-observable'
-import { locationHintsEpic } from '../features/search/middleware'
+import {
+  loadCoordinatesEpic,
+  locationHintsEpic
+} from '../features/search/middleware'
 import {
   loadLocationWeatherEpic,
   loadCoordinatesLocationEpic,
@@ -20,7 +23,8 @@ const rootEpic = combineEpics(
   tabSelectorEpic,
   loadGifEpic,
   resetGifsEpic,
-  switchGifEpic
+  switchGifEpic,
+  loadCoordinatesEpic
 )
 
 export default rootEpic

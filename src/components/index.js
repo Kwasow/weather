@@ -9,7 +9,6 @@ export {
   Row
 } from './Container'
 export { LastUpdated } from './LastUpdated'
-export { LoadingIndicator } from './LoadingIndicator'
 export { StyledSelector } from './Selector'
 export {
   Header,

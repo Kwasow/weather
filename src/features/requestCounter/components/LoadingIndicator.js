@@ -13,13 +13,16 @@ export function LoadingIndicator() {
   const activeRequestCount = useSelector(
     state => state.requestCounter.runningRequests
   )
+  const locationInProgress =
+    useSelector(state => state.location.locationInProgress)
   const themeContext = useContext(ThemeContext)
+  const visible = activeRequestCount > 0 || locationInProgress
 
   return (
     <LoadingIndicatorWrapper>
       <Oval
         color={themeContext.primary}
-        visible={activeRequestCount > 0}
+        visible={visible}
         ariaLabel='oval-loading'
         secondaryColor={themeContext.primarySelected}
         strokeWidth={5}
