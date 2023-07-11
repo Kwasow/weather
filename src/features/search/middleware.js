@@ -6,7 +6,7 @@ import {
 import { mergeMap } from 'rxjs/operators'
 import { WEATHER_API_SEARCH } from '../../utils/consts'
 import { WEATHER_API_KEY } from '../../utils/secrets'
-import { fetchWithCache } from '../../utils/requestCache'
+import { fetchWithCache } from '../../utils/fetchWithCache'
 
 /* ============================ locationHintsEpic =========================== */
 export const locationHintsEpic = (action$, state$) => action$.pipe(

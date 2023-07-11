@@ -1,7 +1,7 @@
 import { ofType } from 'redux-observable'
 import { map, mergeMap, switchMap, takeUntil } from 'rxjs/operators'
 import { interval } from 'rxjs'
-import { fetchWithCache } from '../../utils/requestCache'
+import { fetchWithCache } from '../../utils/fetchWithCache'
 import { TENOR_API_SEARCH } from '../../utils/consts'
 import { TENOR_API_KEY } from '../../utils/secrets'
 import {
@@ -47,14 +47,12 @@ export const resetGifsEpic = (action$) => action$.pipe(
 // 30 seconds in milliseconds
 const gifRefreshInterval = 1000 * 30
 
-export const switchGifEpic = action$ => {
-  return action$.pipe(
-    ofType(WEATHER_GIF_ACTION_SET),
-    switchMap(() => interval(gifRefreshInterval).pipe(
-      map(() => { return { type: WEATHER_GIF_ACTION_NEXT } }),
-      takeUntil(action$.pipe(
-        ofType(WEATHER_GIF_ACTION_RESET, WEATHER_GIF_ACTION_SET)
-      ))
+export const switchGifEpic = action$ => action$.pipe(
+  ofType(WEATHER_GIF_ACTION_SET),
+  switchMap(() => interval(gifRefreshInterval).pipe(
+    map(() => { return { type: WEATHER_GIF_ACTION_NEXT } }),
+    takeUntil(action$.pipe(
+      ofType(WEATHER_GIF_ACTION_RESET, WEATHER_GIF_ACTION_SET)
     ))
-  )
-}
+  ))
+)

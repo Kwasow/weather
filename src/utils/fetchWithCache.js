@@ -1,3 +1,4 @@
+import { cacheAdd } from '../features/cache/slice'
 import {
   requestCounterDecrease,
   requestCounterIncrease
@@ -5,24 +6,23 @@ import {
 import store from '../redux/setupStore'
 import { WEATHER_API_FORECAST } from './consts'
 
-// Cache stores: request -> { timestamp, response }
-const cache = new Map()
 const minutes15 = 1000 * 60 * 15
 
 export async function fetchWithCache(url) {
-  store.dispatch(requestCounterIncrease())
+  const dispatch = store.dispatch
+  dispatch(requestCounterIncrease())
 
   let result = getCachedResult(url)
 
   try {
     if (result === undefined) {
       result = await (await fetch(url)).json()
-      cache.set(url, {
-        timestamp: Date.now(),
-        response: result
-      })
+      dispatch(cacheAdd({
+        key: url,
+        value: result
+      }))
     } else {
-      result = result.response
+      result = result.value
     }
   } finally {
     store.dispatch(requestCounterDecrease())
@@ -32,6 +32,7 @@ export async function fetchWithCache(url) {
 }
 
 function getCachedResult(url) {
+  const cache = store.getState().cache.cache
   const result = cache.get(url)
   const now = Date.now()
   

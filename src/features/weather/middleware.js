@@ -7,7 +7,7 @@ import { map, mergeMap } from 'rxjs/operators'
 import { WEATHER_ACTION_SET_CURRENT } from './slice'
 import { WEATHER_API_FORECAST, WEATHER_API_SEARCH } from '../../utils/consts'
 import { WEATHER_API_KEY } from '../../utils/secrets'
-import { fetchWithCache } from '../../utils/requestCache'
+import { fetchWithCache } from '../../utils/fetchWithCache'
 import { LOCATION_ACTION_RESET } from '../search/slice'
 import { WEATHER_ACTION_RESET } from './slice'
 

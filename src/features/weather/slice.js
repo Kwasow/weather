@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { decideNiceness } from './logic'
 
 const WEATHER_ACTION = 'weather'
 const ACTION_SET_CURRENT = 'setCurrentWeather'
@@ -32,6 +33,9 @@ export const weatherSlice = createSlice({
     }
   }
 })
+
+export const selectWeatherNiceness =
+  state => decideNiceness(state.weather.longTerm)
 
 export const {
   setCurrentWeather,
